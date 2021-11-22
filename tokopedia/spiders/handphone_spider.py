@@ -29,6 +29,8 @@ class HandphoneSpider(scrapy.Spider):
 		# products = response.xpath("//div[@class='css-bk6tzz e1nlzfl3']/a")
 		products = response.xpath("//div[@class='css-bk6tzz e1nlzfl3']")
 		for product in products:
+			if self.item == self.max_items:
+				return
 				# break
 
 			product_link = product.xpath("./a/@href").get()
@@ -61,6 +63,6 @@ class HandphoneSpider(scrapy.Spider):
 
 		self.page += 1
 		yield scrapy.Request(
-            url = self.base_url.format(self.page),
-            callback = self.parse)
+	        url = self.base_url.format(self.page),
+	        callback = self.parse)
 		return
