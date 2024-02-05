@@ -27,7 +27,7 @@ class HandphoneSpider(scrapy.Spider):
 		if self.item == self.max_items:
 			return
 		# products = response.xpath("//div[@class='css-bk6tzz e1nlzfl3']/a")
-		products = response.xpath("//div[@class='css-bk6tzz e1nlzfl3']")
+		products = response.xpath("//div[@class='css-bk6tzz e1nlzfl2']")
 		for product in products:
 			if self.item == self.max_items:
 				return
